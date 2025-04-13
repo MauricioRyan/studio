@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -41,40 +42,90 @@ body {
     --sidebar-accent-foreground: 220 50% 98%;
     --sidebar-border: 220 20% 35%;
     --sidebar-ring: 220 70% 50%;
+
+     /* light mode: all blue hues */
+    --light-background: 230 60% 98%; /* Very light blue */
+    --light-foreground: 230 70% 20%; /* Dark blue */
+    --light-primary: 220 70% 40%; /* Medium blue */
+    --light-secondary: 210 60% 70%; /* Light blue-gray */
+    --light-accent: 200 70% 50%;   /* Teal-blue */
+
+    /* dark mode: darker blues and grays */
+    --dark-background: 220 30% 10%; /* Dark blue-gray */
+    --dark-foreground: 230 50% 90%; /* Light blue-gray */
+    --dark-primary: 220 50% 50%; /* Medium blue */
+    --dark-secondary: 210 30% 30%; /* Darker blue-gray */
+    --dark-accent: 200 50% 40%;    /* Dark teal-blue */
   }
+
   .dark {
-    --background: 220 21% 14%;
-    --foreground: 220 50% 98%;
-    --card: 220 21% 14%;
-    --card-foreground: 220 50% 98%;
-    --popover: 220 21% 14%;
-    --popover-foreground: 220 50% 98%;
-     --primary: 220 70% 50%;
-    --primary-foreground: 220 50% 10%;
-    --secondary: 220 30% 25%;
-    --secondary-foreground: 220 50% 98%;
-    --muted: 220 20% 35%;
-    --muted-foreground: 220 40% 60%;
-    --accent: 220 30% 25%;
-    --accent-foreground: 220 50% 98%;
+    --background: hsl(var(--dark-background));
+    --foreground: hsl(var(--dark-foreground));
+    --card: hsl(var(--dark-background));
+    --card-foreground: hsl(var(--dark-foreground));
+    --popover: hsl(var(--dark-background));
+    --popover-foreground: hsl(var(--dark-foreground));
+     --primary: hsl(var(--dark-primary));
+    --primary-foreground: hsl(var(--light-background));
+    --secondary: hsl(var(--dark-secondary));
+    --secondary-foreground:  hsl(var(--light-background));
+    --muted: hsl(var(--dark-secondary));
+    --muted-foreground: hsl(var(--light-secondary));
+    --accent:  hsl(var(--dark-accent));
+    --accent-foreground: hsl(var(--light-background));
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
     --border: 220 20% 35%;
     --input: 220 20% 35%;
-    --ring: 220 70% 50%;
+    --ring: hsl(var(--dark-primary));
     --chart-1: 220 70% 50%;
     --chart-2: 200 60% 45%;
     --chart-3: 240 80% 55%;
     --chart-4: 260 65% 60%;
     --chart-5: 280 75% 55%;
-    --sidebar-background: 220 21% 14%;
-    --sidebar-foreground: 220 50% 98%;
-    --sidebar-primary: 220 70% 50%;
-    --sidebar-primary-foreground: 220 50% 10%;
-    --sidebar-accent: 220 30% 25%;
-    --sidebar-accent-foreground: 220 50% 98%;
+    --sidebar-background: hsl(var(--dark-background));
+    --sidebar-foreground:  hsl(var(--dark-foreground));
+    --sidebar-primary:  hsl(var(--dark-primary));
+    --sidebar-primary-foreground:  hsl(var(--light-background));
+    --sidebar-accent:  hsl(var(--dark-accent));
+    --sidebar-accent-foreground:  hsl(var(--light-background));
     --sidebar-border: 220 20% 35%;
-    --sidebar-ring: 220 70% 50%;
+    --sidebar-ring:  hsl(var(--dark-primary));
+  }
+
+   :root {
+    --background: hsl(var(--light-background));
+    --foreground: hsl(var(--light-foreground));
+    --card: hsl(var(--light-background));
+    --card-foreground: hsl(var(--light-foreground));
+    --popover: hsl(var(--light-background));
+    --popover-foreground: hsl(var(--light-foreground));
+     --primary: hsl(var(--light-primary));
+    --primary-foreground: hsl(var(--dark-background));
+    --secondary: hsl(var(--light-secondary));
+    --secondary-foreground:  hsl(var(--dark-background));
+    --muted: hsl(var(--light-secondary));
+    --muted-foreground: hsl(var(--dark-secondary));
+    --accent:  hsl(var(--light-accent));
+    --accent-foreground: hsl(var(--dark-background));
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 220 20% 35%;
+    --input: 220 20% 35%;
+    --ring: hsl(var(--light-primary));
+    --chart-1: 220 70% 50%;
+    --chart-2: 200 60% 45%;
+    --chart-3: 240 80% 55%;
+    --chart-4: 260 65% 60%;
+    --chart-5: 280 75% 55%;
+    --sidebar-background: hsl(var(--light-background));
+    --sidebar-foreground:  hsl(var(--light-foreground));
+    --sidebar-primary:  hsl(var(--light-primary));
+    --sidebar-primary-foreground:  hsl(var(--dark-background));
+    --sidebar-accent:  hsl(var(--light-accent));
+    --sidebar-accent-foreground:  hsl(var(--dark-background));
+    --sidebar-border: 220 20% 35%;
+    --sidebar-ring:  hsl(var(--light-primary));
   }
 }
 
@@ -86,4 +137,3 @@ body {
     @apply bg-background text-foreground;
   }
 }
-
