@@ -19,10 +19,11 @@ async function loadConfig(): Promise<SystemConfig[]> {
   return new Promise((resolve) => {
     setTimeout(() => {
       const mockConfig: SystemConfig[] = [
-        {name: 'Meed Interna', description: 'Description of System A', url: 'https://med.pjm.gob.ar'},
-        {name: 'Meed Externa', description: 'Description of System B', url: 'https://meed.pjm.gob,ar'},
+        {name: 'Meed Interna', description: 'acceso a la bandeja de entradas de la MeeD, para Jefe de Mesas de Entradas A', url: 'https://med.pjm.gob.ar'},
+        {name: 'Meed Externa', description: 'Portal MeeD para presentar y revisar presentaciones', url: 'https://meed.pjm.gob,ar'},
         {name: 'BLSG', description: 'Certificado para Beneficio de Litigar sin Gasto', url: 'https://blsg.pjm.gob.ar'},
-        {name: 'Skipper', description: 'Description of System D', url: 'https://skipper-uploader.pjm.gob.ar/'},
+        {name: 'Skipper', description: 'Repositorios de archivos y videos para tener link y/o QR para referenciar, es costoso (queda guardado para siempre)', url: 'https://skipper-uploader.pjm.gob.ar/'},
+        {name: 'Contenidos', description: 'Herramienta para compartir archivos (cualquier tipo) es temporario y económico (gratis)', url: 'https://skipper-uploader.pjm.gob.ar/'},
         {name: 'Firmador Digital', description: 'Description of System E', url: 'https://signer-fe.pjm.gob.ar/firmar'},
         {name: 'IoL IURIX', description: 'Description of System F', url: 'https://iol.jus.mendoza.gov.ar/iol-ui/p/inicio'},
         {name: 'Led Penal', description: 'Description of System G', url: 'https://ledp.pjm.gob.ar'},
@@ -68,7 +69,7 @@ export default function Home() {
       <div className="flex justify-between items-center mb-4">
         <Input
           type="text"
-          placeholder="Search systems..."
+          placeholder="buscar aplicación..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           className="mr-2"
