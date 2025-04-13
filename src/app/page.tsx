@@ -17,18 +17,19 @@ async function loadConfig(): Promise<SystemConfig[]> {
   return new Promise((resolve) => {
     setTimeout(() => {
       const mockConfig: SystemConfig[] = [
-        {name: 'System A', description: 'Description of System A', url: 'https://systema.example.com'},
-        {name: 'System B', description: 'Description of System B', url: 'https://systemb.example.com'},
-        {name: 'System C', description: 'Description of System C', url: 'https://systemc.example.com'},
-        {name: 'System D', description: 'Description of System D', url: 'https://systemd.example.com'},
-        {name: 'System E', description: 'Description of System E', url: 'https://systeme.example.com'},
-        {name: 'System F', description: 'Description of System F', url: 'https://systemf.example.com'},
-        {name: 'System G', description: 'Description of System G', url: 'https://systemg.example.com'},
-        {name: 'System H', description: 'Description of System H', url: 'https://systemh.example.com'},
-        {name: 'System I', description: 'Description of System I', url: 'https://systemi.example.com'},
-        {name: 'System J', description: 'Description of System J', url: 'https://systemj.example.com'},
-        {name: 'System K', description: 'Description of System K', url: 'https://systemk.example.com'},
-        {name: 'System L', description: 'Description of System L', url: 'https://systeml.example.com'},
+        {name: 'Meed Interna', description: 'Description of System A', url: 'https://med.pjm.gob.ar'},
+        {name: 'Meed Externa', description: 'Description of System B', url: 'https://meed.pjm.gob,ar'},
+        {name: 'BLSG', description: 'Certificado para Beneficio de Litigar sin Gasto', url: 'https://blsg.pjm.gob.ar'},
+        {name: 'Skipper', description: 'Description of System D', url: 'https://skipper-uploader.pjm.gob.ar/'},
+        {name: 'Firmador Digital', description: 'Description of System E', url: 'https://signer-fe.pjm.gob.ar/firmar'},
+        {name: 'IoL IURIX', description: 'Description of System F', url: 'https://iol.jus.mendoza.gov.ar/iol-ui/p/inicio'},
+        {name: 'Led Penal', description: 'Description of System G', url: 'https://ledp.pjm.gob.ar'},
+        {name: 'Ticket', description: 'Description of System H', url: 'https://pjm-devops2.freshdesk.com/support/tickets/new'},
+        {name: 'Zimbra', description: 'Description of System I', url: 'https://mail.jus.mendoza.gov.ar/'},
+        {name: 'Portal', description: 'Description of System J', url: 'https://jusmendoza.gob.ar/'},
+        {name: 'Landing Page', description: 'Description of System K', url: 'http://lp.pjm.gob.ar/'},
+        {name: 'SINEJ', description: 'Description of System K', url: 'https://notificaciones.jus.mendoza.gov.ar'},
+        {name: 'listas Diarias', description: 'Description of System L', url: 'https://www2.jus.mendoza.gov.ar/listas/proveidos/listas.php'},
       ];
       resolve(mockConfig);
     }, 1500); // Simulate a 1.5 second loading time
@@ -60,7 +61,7 @@ export default function Home() {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">System Navigator</h1>
+      <h1 className="text-2xl font-bold mb-4">Menú de Sistemas</h1>
 
       <Input
         type="text"
@@ -86,7 +87,7 @@ export default function Home() {
               <CardContent>
                 <Button asChild>
                   <a href={system.url} target="_blank" rel="noopener noreferrer" className="text-teal-500 hover:text-teal-700">
-                    Go to System
+                    ir a la aplicación
                     <Icons.externalLink className="ml-2 h-4 w-4" />
                   </a>
                 </Button>
