@@ -1,11 +1,21 @@
 'use client';
 
-import {Card, CardDescription, CardHeader, CardTitle, CardContent} from '@/components/ui/card';
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
 import {Input} from '@/components/ui/input';
 import {useEffect, useState} from 'react';
 import {Icons} from '@/components/icons';
 import {Button} from '@/components/ui/button';
 import {useTheme} from 'next-themes';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
 
 interface SystemConfig {
   name: string;
@@ -87,15 +97,22 @@ export default function Home() {
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {filteredSystems.map((system, index) => (
-            <Card
-              key={index}
-              className="transition-all duration-300 ease-in-out cursor-pointer h-24 overflow-hidden hover:h-48 hover:shadow-md"
-              onClick={() => window.open(system.url, '_blank')}
-            >
-              <CardHeader>
-                <CardTitle>{system.name}</CardTitle>
-                <CardDescription>{system.description}</CardDescription>
-              </CardHeader>
+            <Card key={index} className="transition-all duration-300 ease-in-out cursor-pointer">
+              <Accordion type="single" collapsible>
+                <AccordionItem value={`system-${index}`}>
+                  <AccordionTrigger className="flex items-center justify-between py-2">
+                    <CardHeader>
+                      <CardTitle>{system.name}</CardTitle>
+                    </CardHeader>
+                  </AccordionTrigger>
+                  <AccordionContent>
+                    <p className="text-sm text-muted-foreground mb-2">{system.description}</p>
+                    <a href={system.url} target="_blank" rel="noopener noreferrer" className="text-teal-500 hover:underline">
+                      {system.url}
+                    </a>
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
             </Card>
           ))}
         </div>
