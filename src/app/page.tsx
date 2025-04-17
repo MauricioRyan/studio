@@ -18,20 +18,21 @@ async function loadConfig(): Promise<SystemConfig[]> {
   return new Promise((resolve) => {
     setTimeout(() => {
       const mockConfig: SystemConfig[] = [
+        {name: 'SPA', description: 'Sistema de Publicaciones Administrativas, aquí están todas las acordadas', url: 'https://med.pjm.gob.ar'},
         {name: 'Meed Interna', description: 'acceso a la bandeja de entradas de la MeeD, para Jefe de Mesas de Entradas A', url: 'https://med.pjm.gob.ar'},
         {name: 'Meed Externa', description: 'Portal MeeD para presentar y revisar presentaciones', url: 'https://meed.pjm.gob,ar'},
         {name: 'BLSG', description: 'Certificado para Beneficio de Litigar sin Gasto', url: 'https://blsg.pjm.gob.ar'},
         {name: 'Skipper', description: 'Repositorios de archivos y videos para tener link y/o QR para referenciar, es costoso (queda guardado para siempre)', url: 'https://skipper-uploader.pjm.gob.ar/'},
         {name: 'Contenidos', description: 'Herramienta para compartir archivos (cualquier tipo) es temporario y económico (gratis)', url: 'https://skipper-uploader.pjm.gob.ar/'},
-        {name: 'Firmador Digital', description: 'Description of System E', url: 'https://signer-fe.pjm.gob.ar/firmar'},
-        {name: 'IoL IURIX', description: 'Description of System F', url: 'https://iol.jus.mendoza.gov.ar/iol-ui/p/inicio'},
-        {name: 'Led Penal', description: 'Description of System G', url: 'https://ledp.pjm.gob.ar'},
-        {name: 'Ticket', description: 'Description of System H', url: 'https://pjm-devops2.freshdesk.com/support/tickets/new'},
-        {name: 'Zimbra', description: 'Description of System I', url: 'https://mail.jus.mendoza.gov.ar/'},
-        {name: 'Portal', description: 'Description of System J', url: 'https://jusmendoza.gob.ar/'},
-        {name: 'Landing Page', description: 'Description of System K', url: 'http://lp.pjm.gob.ar/'},
-        {name: 'SINEJ', description: 'Description of System K', url: 'https://notificaciones.jus.mendoza.gov.ar'},
-        {name: 'listas Diarias', description: 'Description of System L', url: 'https://www2.jus.mendoza.gov.ar/listas/proveidos/listas.php'},
+        {name: 'Firmador Digital', description: 'Firmador digital Oficial del Poder Judicial', url: 'https://signer-fe.pjm.gob.ar/firmar'},
+        {name: 'IoL IURIX', description: 'Portal IOL de Iurix on Line', url: 'https://iol.jus.mendoza.gov.ar/iol-ui/p/inicio'},
+        {name: 'Led Penal', description: 'Expediente Penales LeD', url: 'https://ledp.pjm.gob.ar'},
+        {name: 'Ticket', description: 'alta de ticke para pedir ayda de los sitemas', url: 'https://pjm-devops2.freshdesk.com/support/tickets/new'},
+        {name: 'Zimbra', description: 'Correo Oficial del Poder Judicial ZIMBRA', url: 'https://mail.jus.mendoza.gov.ar/'},
+        {name: 'Portal', description: 'Portal ofidcial del Poder Judicial de Mendoza www.jusmendoza.gob.ar', url: 'https://jusmendoza.gob.ar/'},
+        {name: 'Landing Page', description: 'Accesos directos más usados del Portal', url: 'http://lp.pjm.gob.ar/'},
+        {name: 'SINEJ', description: 'Notifiacaciones Electrónicas', url: 'https://notificaciones.jus.mendoza.gov.ar'},
+        {name: 'listas Diarias', description: 'Listas Diarias y proveidos', url: 'https://www2.jus.mendoza.gov.ar/listas/proveidos/listas.php'},
       ];
       resolve(mockConfig);
     }, 1500); // Simulate a 1.5 second loading time
