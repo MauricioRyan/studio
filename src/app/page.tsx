@@ -1,4 +1,3 @@
-
 'use client';
 
 import {Card, CardDescription, CardHeader, CardTitle, CardContent} from '@/components/ui/card';
@@ -88,19 +87,15 @@ export default function Home() {
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {filteredSystems.map((system, index) => (
-            <Card key={index} className="hover:shadow-md transition-shadow duration-300">
+            <Card
+              key={index}
+              className="transition-all duration-300 ease-in-out cursor-pointer h-24 overflow-hidden hover:h-48 hover:shadow-md"
+              onClick={() => window.open(system.url, '_blank')}
+            >
               <CardHeader>
                 <CardTitle>{system.name}</CardTitle>
                 <CardDescription>{system.description}</CardDescription>
               </CardHeader>
-              <CardContent>
-                <Button asChild>
-                  <a href={system.url} target="_blank" rel="noopener noreferrer" className="text-teal-500 hover:text-teal-700">
-                    ir a la aplicación
-                    <Icons.externalLink className="ml-2 h-4 w-4" />
-                  </a>
-                </Button>
-              </CardContent>
             </Card>
           ))}
         </div>
@@ -108,4 +103,3 @@ export default function Home() {
     </div>
   );
 }
-
