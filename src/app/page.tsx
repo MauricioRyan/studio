@@ -1,21 +1,11 @@
 'use client';
 
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
+import {Card, CardDescription, CardHeader, CardTitle, CardContent} from '@/components/ui/card';
 import {Input} from '@/components/ui/input';
 import {useEffect, useState} from 'react';
 import {Icons} from '@/components/icons';
 import {Button} from '@/components/ui/button';
 import {useTheme} from 'next-themes';
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion"
 
 interface SystemConfig {
   name: string;
@@ -28,20 +18,21 @@ async function loadConfig(): Promise<SystemConfig[]> {
   return new Promise((resolve) => {
     setTimeout(() => {
       const mockConfig: SystemConfig[] = [
+        {name: 'SPA', description: 'Sistema de Publicaciones Administrativas, aquí están todas las acordadas', url: 'https://med.pjm.gob.ar'},
         {name: 'Meed Interna', description: 'acceso a la bandeja de entradas de la MeeD, para Jefe de Mesas de Entradas A', url: 'https://med.pjm.gob.ar'},
         {name: 'Meed Externa', description: 'Portal MeeD para presentar y revisar presentaciones', url: 'https://meed.pjm.gob,ar'},
         {name: 'BLSG', description: 'Certificado para Beneficio de Litigar sin Gasto', url: 'https://blsg.pjm.gob.ar'},
         {name: 'Skipper', description: 'Repositorios de archivos y videos para tener link y/o QR para referenciar, es costoso (queda guardado para siempre)', url: 'https://skipper-uploader.pjm.gob.ar/'},
         {name: 'Contenidos', description: 'Herramienta para compartir archivos (cualquier tipo) es temporario y económico (gratis)', url: 'https://skipper-uploader.pjm.gob.ar/'},
-        {name: 'Firmador Digital', description: 'Description of System E', url: 'https://signer-fe.pjm.gob.ar/firmar'},
-        {name: 'IoL IURIX', description: 'Description of System F', url: 'https://iol.jus.mendoza.gov.ar/iol-ui/p/inicio'},
-        {name: 'Led Penal', description: 'Description of System G', url: 'https://ledp.pjm.gob.ar'},
-        {name: 'Ticket', description: 'Description of System H', url: 'https://pjm-devops2.freshdesk.com/support/tickets/new'},
-        {name: 'Zimbra', description: 'Description of System I', url: 'https://mail.jus.mendoza.gov.ar/'},
-        {name: 'Portal', description: 'Description of System J', url: 'https://jusmendoza.gob.ar/'},
-        {name: 'Landing Page', description: 'Description of System K', url: 'http://lp.pjm.gob.ar/'},
-        {name: 'SINEJ', description: 'Description of System K', url: 'https://notificaciones.jus.mendoza.gov.ar'},
-        {name: 'listas Diarias', description: 'Description of System L', url: 'https://www2.jus.mendoza.gov.ar/listas/proveidos/listas.php'},
+        {name: 'Firmador Digital', description: 'Firmador digital Oficial del Poder Judicial', url: 'https://signer-fe.pjm.gob.ar/firmar'},
+        {name: 'IoL IURIX', description: 'Portal IOL de Iurix on Line', url: 'https://iol.jus.mendoza.gov.ar/iol-ui/p/inicio'},
+        {name: 'Led Penal', description: 'Expediente Penales LeD', url: 'https://ledp.pjm.gob.ar'},
+        {name: 'Ticket', description: 'alta de ticke para pedir ayda de los sitemas', url: 'https://pjm-devops2.freshdesk.com/support/tickets/new'},
+        {name: 'Zimbra', description: 'Correo Oficial del Poder Judicial ZIMBRA', url: 'https://mail.jus.mendoza.gov.ar/'},
+        {name: 'Portal', description: 'Portal ofidcial del Poder Judicial de Mendoza www.jusmendoza.gob.ar', url: 'https://jusmendoza.gob.ar/'},
+        {name: 'Landing Page', description: 'Accesos directos más usados del Portal', url: 'http://lp.pjm.gob.ar/'},
+        {name: 'SINEJ', description: 'Notifiacaciones Electrónicas', url: 'https://notificaciones.jus.mendoza.gov.ar'},
+        {name: 'listas Diarias', description: 'Listas Diarias y proveidos', url: 'https://www2.jus.mendoza.gov.ar/listas/proveidos/listas.php'},
       ];
       resolve(mockConfig);
     }, 1500); // Simulate a 1.5 second loading time
@@ -97,28 +88,30 @@ export default function Home() {
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {filteredSystems.map((system, index) => (
-            <Card key={index} className="transition-all duration-300 ease-in-out cursor-pointer">
-              <Accordion type="single" collapsible>
-                <AccordionItem value={`system-${index}`}>
-                  <AccordionTrigger className="flex items-center justify-between py-2">
-                    <CardHeader>
-                      <CardTitle>{system.name}</CardTitle>
-                    </CardHeader>
-                  </AccordionTrigger>
-                  <AccordionContent>
-                    <p className="text-sm text-muted-foreground mb-2">{system.description}</p>
-                    <a href={system.url} target="_blank" rel="noopener noreferrer" className="text-teal-500 hover:underline">
-                      {system.url}
-                    </a>
-                  </AccordionContent>
-                </AccordionItem>
-              </Accordion>
-            </Card>
+             <Card
+             key={index}
+             className="transition-all duration-300 ease-in-out cursor-pointer h-12 overflow-hidden hover:h-24 hover:shadow-md"
+             onClick={() => window.open(system.url, '_blank')}
+           >
+             <CardHeader className="p-2">
+               <CardTitle className="text-sm font-semibold">{system.name}</CardTitle>
+               <CardDescription className="text-xs line-clamp-2">{system.description}</CardDescription>
+             </CardHeader>
+             <CardContent className="p-2">
+               <a
+                 href={system.url}
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 className="text-teal-500 hover:text-teal-700 text-xs"
+               >
+                 {system.url}
+                 <Icons.externalLink className="ml-1 h-3 w-3 inline-block" />
+               </a>
+             </CardContent>
+           </Card>
           ))}
         </div>
       )}
     </div>
   );
 }
-
-
