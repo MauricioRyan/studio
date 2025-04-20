@@ -90,7 +90,7 @@ export default function Home() {
           {filteredSystems.map((system, index) => (
              <Card
              key={index}
-             className="transition-all duration-300 ease-in-out cursor-pointer h-12 overflow-hidden hover:h-24 hover:shadow-md"
+             className="transition-all duration-300 ease-in-out cursor-pointer h-8 overflow-hidden hover:h-24 hover:shadow-md"
              onClick={() => window.open(system.url, '_blank')}
            >
              <CardHeader className="p-2">
