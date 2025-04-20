@@ -18,7 +18,7 @@ async function loadConfig(): Promise<SystemConfig[]> {
   return new Promise((resolve) => {
     setTimeout(() => {
       const mockConfig: SystemConfig[] = [
-        {name: 'SPA', description: 'Sistema de Publicaciones Administrativas, aquí están todas las acordadas', url: 'https://med.pjm.gob.ar'},
+        {name: 'SPA', description: 'Sistema de Publicaciones Administrativas, aquí están todas las acordadas', url: 'https://spa.pjm.gob.ar'},
         {name: 'Meed Interna', description: 'acceso a la bandeja de entradas de la MeeD, para Jefe de Mesas de Entradas A', url: 'https://med.pjm.gob.ar'},
         {name: 'Meed Externa', description: 'Portal MeeD para presentar y revisar presentaciones', url: 'https://meed.pjm.gob,ar'},
         {name: 'BLSG', description: 'Certificado para Beneficio de Litigar sin Gasto', url: 'https://blsg.pjm.gob.ar'},
@@ -90,7 +90,11 @@ export default function Home() {
           {filteredSystems.map((system, index) => (
              <Card
              key={index}
-             className="transition-all duration-300 ease-in-out cursor-pointer h-8 overflow-hidden hover:h-24 hover:shadow-md"
+             className={`transition-all duration-300 ease-in-out cursor-pointer h-9 overflow-hidden ${
+               system.description.length < 60
+                 ? 'hover:h-24'
+                 : 'hover:h-32'
+             } hover:shadow-md`}
              onClick={() => window.open(system.url, '_blank')}
            >
              <CardHeader className="p-2">
